@@ -50,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="APIStatic\API.cs" />
+    <Compile Include="API\Comment.cs" />
+    <Compile Include="API\Post.cs" />
     <Compile Include="Comment.cs">
       <DependentUpon>PostComment.tt</DependentUpon>
     </Compile>
@@ -87,10 +89,7 @@
       <DependentUpon>PostComment.edmx</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="APIStatic\" />
-    <Folder Include="API\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="PostComment.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

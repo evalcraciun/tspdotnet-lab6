@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 03/25/2020 14:40:46
+-- Date Created: 03/28/2020 16:08:59
 -- Generated from EDMX file: C:\Users\Ciprian Craciun\source\repos\PostComment\PostComment\PostComment.edmx
 -- --------------------------------------------------
 

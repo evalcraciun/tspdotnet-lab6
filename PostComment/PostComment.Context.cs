@@ -13,11 +13,14 @@ namespace PostComment
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class ModelPostCommentContainer : DbContext
+    public partial class Model1Container : DbContext
     {
-        public ModelPostCommentContainer()
+        public Model1Container()
             : base("name=Model1Container")
         {
+            // Inhibare: lazy loading si creare proxy dinamic.
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

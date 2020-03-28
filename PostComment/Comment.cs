@@ -13,7 +13,7 @@ namespace PostComment
     using System.Collections.Generic;
     using System.Runtime.Serialization;
 
-    [DataContract(IsReference=true)]
+    [DataContract(IsReference = true)]
     public partial class Comment
     {
         [DataMember]
@@ -22,7 +22,6 @@ namespace PostComment
         public string Text { get; set; }
         [DataMember]
         public int PostPostId { get; set; }
-
         [DataMember]
         public virtual Post Post { get; set; }
     }

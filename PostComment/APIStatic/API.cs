@@ -11,7 +11,7 @@ namespace PostComment.APIStatic
     {
         public static bool AddPost(Post post)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 bool bResult = false;
                 if (post.PostId == 0)
@@ -26,7 +26,7 @@ namespace PostComment.APIStatic
 
         public static Post UpdatePost(Post newPost)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 // Ce e in bd. PK nu poate fi modificata
                 Post oldPost = ctx.Posts.Find(newPost.PostId);
@@ -44,7 +44,7 @@ namespace PostComment.APIStatic
 
         public static int DeletePost(int id)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 return ctx.Database.ExecuteSqlCommand("Delete From Post where postid =@p0", id);
             }
@@ -57,7 +57,7 @@ namespace PostComment.APIStatic
         /// <returns></returns>
         public static Post GetPostById(int id)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 var items = from p in ctx.Posts where (p.PostId == id) select p;
                 if (items != null)
@@ -72,7 +72,7 @@ namespace PostComment.APIStatic
         /// <returns></returns>
         public static List<Post> GetAllPosts()
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 return ctx.Posts.Include("Comments").ToList<Post>();
             }
@@ -81,7 +81,7 @@ namespace PostComment.APIStatic
         // Comment table
         public static bool AddComment(Comment comment)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 bool bResult = false;
                 if (comment == null || comment.PostPostId == 0)
@@ -100,7 +100,7 @@ namespace PostComment.APIStatic
 
         public static Comment UpdateComment(Comment newComment)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 Comment oldComment = ctx.Comments.Find(newComment.CommentId);
                 if (newComment.Text != null)
@@ -117,7 +117,7 @@ namespace PostComment.APIStatic
 
         public static Comment GetCommentById(int id)
         {
-            using (ModelPostCommentContainer ctx = new ModelPostCommentContainer())
+            using (Model1Container ctx = new Model1Container())
             {
                 var items = from c in ctx.Comments where (c.CommentId == id) select c;
                 return items.Include(p => p.Post).SingleOrDefault();

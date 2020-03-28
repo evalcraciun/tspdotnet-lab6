@@ -12,7 +12,6 @@ namespace PostComment
     using System;
     using System.Collections.Generic;
     using System.Runtime.Serialization;
-    using System.Security.Cryptography.Xml;
 
     [DataContract(IsReference = true)]
     public partial class Post
@@ -25,10 +24,13 @@ namespace PostComment
 
         [DataMember]
         public int PostId { get; set; }
+
         [DataMember]
         public string Description { get; set; }
+
         [DataMember]
         public string Domain { get; set; }
+
         [DataMember]
         public string Date { get; set; }
     
